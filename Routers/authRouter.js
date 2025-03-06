@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post("/register", signup);
 
-router.get("/log-in", login)
+router.get("/login", login)
 
 router.get("/logout", logout)
 
