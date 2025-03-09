@@ -8,8 +8,13 @@ import bodyParser from "body-parser";
 app.use(express.json());
 donenv.config();
 const PORT = process.env.PORT || 1500;
+
 import cors from "cors";
-app.use(cors());
+
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
 app.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGO, {
@@ -55,7 +60,6 @@ app.use((err, req, res, next) => {
         message,
     });
 });
-
 
 
 app.listen(PORT, () => {
